@@ -1,9 +1,25 @@
 package controllers
 
-import play.api.mvc.{Action, Controller}
+import play.api.mvc.{ Action, Controller }
 
 object Application extends Controller {
   def index = Action {
-    Ok(views.html.index("Hello Play Framework"))
+    Ok(views.html.index("The Morgantown Multi-User Dungeon"))
+  }
+
+  def features = Action {
+    Ok(views.html.features("Feature List"))
+  }
+  
+  def screenshots = Action {
+    Ok(views.html.screenshots("Screenshots"))
+  }
+  
+  def announcements = Action {
+    Ok(views.html.announcements("Announcements"))
+  }
+  
+  def aboutUs = Action {
+    Ok(views.html.aboutUs("About Us"))
   }
 }

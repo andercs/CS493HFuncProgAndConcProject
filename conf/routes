@@ -3,6 +3,10 @@
 # ~~~~
 
 GET     /                           controllers.Application.index()
+GET		/features					controllers.Application.features()
+GET		/screenshots				controllers.Application.screenshots()
+GET		/announcements				controllers.Application.announcements()
+GET		/about						controllers.Application.aboutUs()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
