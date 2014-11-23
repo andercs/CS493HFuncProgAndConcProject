@@ -7,7 +7,11 @@ version := "1.0-SNAPSHOT"
 exportJars := true
 
 lazy val app = project.in(file("app"))
-lazy val game = project.in(file("game"))
+lazy val game = project.in(file("game")).
+	settings(
+		libraryDependencies += "com.typesafe.akka" % "akka-actor_2.10" % "2.3.7",
+		libraryDependencies += "com.typesafe.akka" % "akka-actor-tests_2.10" % "2.3.7"
+	)
 
 libraryDependencies ++= Seq(
   "org.webjars" %% "webjars-play" % "2.2.0", 
