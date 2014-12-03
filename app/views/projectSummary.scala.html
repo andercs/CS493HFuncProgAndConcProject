@@ -1,0 +1,50 @@
+@(message: String)
+
+@main("MoMud") {
+
+    <div class="well">
+        <h1>@message</h1>
+    </div>
+    <div class="container-fluid">
+ 		<p class="lead">
+ 		A MUD (Multi-User Dimension) is a text-based, online adventure game.  
+ 		Essentially, it is a platform for multiple users to interact within a shared game world. 
+ 		When stripped down to its basic elements, a MUD becomes a simple tool for learning and building a concurrent, real-time system.
+ 		</p>
+ 		<p>
+ 		Many potential concurrency issues exist in such an environment. 
+ 		Consider a scenario where one player decides to leave his immediate area while other players attempt to interact with him. 
+ 		If mishandled, the player could depart the room and then suddenly be struck by someone from the previous room, or 
+ 		the player might overhear a conversation from the room he has just left.  
+ 		What if two players attempt to pick up the same item at the same time? 
+ 		They may inadvertently duplicate the item and each possess a copy. 
+ 		Clearly, coordinating simultaneous player driven events is critical to the functioning of a MUD.
+ 		</p>
+ 		<p>
+ 		We used Scala’s Actor system to address these issues. 
+ 		The main components of the MUD, being the game server, the world, and the users, are all Actors.
+ 		When the server starts up, it signals the World Actor to read world data from the database and create a Room actor for each location. 
+ 		As users login, they are each individually and simultaneously guided through a brief character creation process 
+ 		by the game server and assigned a User actor. 
+ 		Users then interact by relaying their actions through the Room Actor in which they reside. 
+ 		Each Room Actor in parallel coordinates the sequence of interactions for users in their room. 
+ 		In addition, command parsing and handling is also done by specialized actors created by the User. 
+ 		The end result is a design which is simple and logical and yet inherently concurrent.
+ 		</p>
+ 		<p>
+ 		Our MUD also uses the Slick database interface to query our MySQL database. 
+ 		This library was exceptionally easy to learn and use. 
+ 		It allowed us to very naturally read and operate on data from the database 
+ 		without having to write virtually any queries or boilerplate. 
+ 		The tables in the database are treated as collections. 
+ 		Queries against the data were essentially for expressions and filters on those collections. 
+ 		Updates, insertions, or deletions are done similarly naturally with standard operations such as ‘+’ or ‘-’.
+ 		</p>
+ 		<p>
+ 		In conclusion, Scala combined with Akka and Slick allowed us to tackle an originally intimidating project very easily. 
+ 		While the MUD itself has an extremely limited list of features in its current state, it nevertheless showcases a concurrent, 
+ 		real-time design using actors and functional programming principles.
+ 		</p>
+    </div>
+
+}

@@ -22,4 +22,8 @@ object Application extends Controller {
   def aboutUs = Action {
     Ok(views.html.aboutUs("About the Developers"))
   }
+  
+  def projectSummary = Action {
+    Ok(views.html.projectSummary("Project Summary"))
+  }
 }
