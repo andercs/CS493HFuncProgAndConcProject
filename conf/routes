@@ -7,6 +7,8 @@ GET		/features					controllers.Application.features()
 GET		/screenshots				controllers.Application.screenshots()
 GET		/announcements				controllers.Application.announcements()
 GET		/about						controllers.Application.aboutUs()
+GET		/outline					controllers.Application.projectOutline()
+GET		/actors						controllers.Application.actorSystem()
 GET		/summary					controllers.Application.projectSummary()
 
 # Map static resources from the /public folder to the /assets URL path

@@ -23,6 +23,14 @@ object Application extends Controller {
     Ok(views.html.aboutUs("About the Developers"))
   }
   
+  def projectOutline = Action {
+    Ok(views.html.projectOutline("Project Outline"))
+  }
+  
+  def actorSystem = Action {
+    Ok(views.html.actorSystem("Actor System"))
+  }
+  
   def projectSummary = Action {
     Ok(views.html.projectSummary("Project Summary"))
   }
